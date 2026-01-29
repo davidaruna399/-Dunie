@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Georgia', serif;
+      font-family: "Georgia", serif;
       background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
       color: #2c2c2c;
       text-align: center;
@@ -16,29 +16,36 @@
     }
 
     .container {
-      max-width: 700px;
+      max-width: 820px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 50px 25px;
     }
 
     h1 {
-      font-size: 2.6rem;
-      margin-bottom: 10px;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
 
     p {
       font-size: 1.15rem;
-      line-height: 1.7;
-      margin: 18px 0;
+      line-height: 1.8;
+      margin: 22px 0;
+      text-align: left;
+    }
+
+    .question {
+      margin-top: 50px;
+      font-size: 2rem;
+      text-align: center;
     }
 
     .buttons {
-      margin-top: 40px;
+      margin-top: 30px;
     }
 
     button {
       font-size: 1.2rem;
-      padding: 12px 28px;
+      padding: 12px 30px;
       margin: 10px;
       border: none;
       border-radius: 30px;
@@ -64,3 +71,139 @@
     .hidden {
       display: none;
     }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: rgba(255, 0, 80, 0.6);
+      font-size: 20px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      from { transform: translateY(0); }
+      to { transform: translateY(100vh); }
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>Eunice ❤️</h1>
+
+  <p>
+    Not with grand declarations, but with the soft scratch of a pencil, a shared textbook,
+    and a question about a Mechanics problem I was too proud to admit I couldn’t solve alone.
+    You, Eunice, with your calm strength, didn’t just give me the answer. You gave me your patience.
+    You drew the equation, you explained the logic, and when understanding finally dawned on me,
+    your laugh didn’t feel like celebration — it felt like a gift.
+  </p>
+
+  <p>
+    Slowly, the world of formulas began to dissolve. Between sessions on Pure Maths and Mechanics,
+    we built a new language. One made of dreams whispered across a desk, of fears confessed under
+    the fluorescent lights, and of a trust built not in grand moments, but in the quiet, consistent
+    choice to show up, to listen, to see each other.
+  </p>
+
+  <p>
+    What began as academic support became the foundation of my life.
+    You became my safest place, my most honest conversation, my home.
+  </p>
+
+  <p>
+    And then, I asked you out. The first date, at the cinema watching <em>Bagman</em>,
+    is etched in my memory not for the film, but for the sacred quiet between us.
+    The nervousness was tangible, but it was outshone by the way you looked in the dim light,
+    and the faint, heavenly scent of your perfume that made my world tilt on its axis.
+  </p>
+
+  <p>
+    You were no longer just my study partner; you were a vision,
+    and my heart finally understood what my soul had known for years.
+  </p>
+
+  <p>
+    The second date — the park picnic — was where our story truly began to breathe.
+    Surrounded by grass and sunlight, the last of our formal walls crumbled.
+    Our first kiss was shy and sweet, a promise whispered without words.
+  </p>
+
+  <p>
+    And when that mischievous dog sprinted off with our fried chicken,
+    we didn’t get upset — we fell into a fit of pure, unburdened laughter.
+    We let go of everything that day.
+  </p>
+
+  <p>
+    The Polaroid pictures we took captured more than our smiles;
+    they captured the moment I saw our future, bright and boundless, in your eyes.
+    We’ve been to the cinema many times since, but the greatest story we’re watching unfold
+    isn’t on any screen.
+  </p>
+
+  <p>
+    It’s the one we’re writing together, frame by beautiful frame.
+  </p>
+
+  <p>
+    Now, a year (and a few months) since you said “yes” to being my girlfriend,
+    my gratitude defies words. It lives in the steady rhythm of our shared life.
+  </p>
+
+  <p>
+    It’s in the profound peace of your presence, the warmth of your hand in mine,
+    and the unparalleled joy of waking up every single day to a simple text:
+    “Good morning, babe ☺️.”
+  </p>
+
+  <p>
+    You are my greatest discovery, my most cherished equation —
+    where everything balances perfectly to form a love I never dared dream of.
+  </p>
+
+  <h1 class="question">Eunice, will you be my Valentine? ❤️</h1>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="yesClicked()">Yes ❤️</button>
+    <button id="noBtn" onmouseover="moveNo()">No 😄</button>
+  </div>
+
+  <h2 id="response" class="hidden">
+    I knew it 😌❤️  
+    Thank you for choosing me, always.
+  </h2>
+</div>
+
+<script>
+  function yesClicked() {
+    document.getElementById("response").classList.remove("hidden");
+  }
+
+  function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 300);
+</script>
+
+</body>
+</html>
